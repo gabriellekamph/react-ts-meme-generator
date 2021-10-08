@@ -64,7 +64,7 @@ const Form = (props: FormInterface) => {
 
                 { /* Button to remove meme on click */}
                 {props.isMemeGenerated && 
-                <button className="btn btn-danger" type="button onClick={props.handleMemeReset">
+                <button className="btn btn-danger" type="button" onClick={props.handleMemeReset}>
                     Reset 
                 </button>}
             </div>
