@@ -56,6 +56,21 @@ function handleImageInputChange(event) {
   setActiveImage(window.URL.createObjectURL(event.target.files[0]))
 }
 
+// Function to handle meme generation
+
+function handleMemeGeneration() {
+  if (resultContainerRef.current.childNodes.length > 0) {
+    resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
+  }
+
+  domtoimage.toPng(contentContainerRef.current).then((dataUrl) => {
+    const img = new Image()
+    img.src = dataUrl
+    resultContainerRef.current.appendChild(img)
+    setIsMemeGenerated(true)
+  })
+}
+
 function App() {
   return (
     <div className="App">
