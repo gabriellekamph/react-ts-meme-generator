@@ -50,6 +50,12 @@ function handleImageChange() {
   setActiveImage(image.url)
 }
 
+// Function to handle image upload 
+
+function handleImageInputChange(event) {
+  setActiveImage(window.URL.createObjectURL(event.target.files[0]))
+}
+
 function App() {
   return (
     <div className="App">
