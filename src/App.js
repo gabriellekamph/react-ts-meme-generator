@@ -71,6 +71,13 @@ function handleMemeGeneration() {
   })
 }
 
+// Function to handle reset button and removing existing pictures
+
+function handleMemeReset() {
+  resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
+  setIsMemeGenerated(false)
+}
+
 function App() {
   return (
     <div className="App">
