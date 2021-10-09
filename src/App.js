@@ -18,7 +18,20 @@ const [textTop, setTextTop] = React.useState('')
 const [textBottom, setTextBottom] = React.useState('')
 const [isMemeGenerated, setIsMemeGenerated] = React.useState(false)
 
+// Fetching images from API
 
+async function fetchImage() {
+  const imgData = await fetch('https://api.imgflip.com/get_memes')
+  .then(res => res.json())
+  .catch(err => console.log(err))
+  const { memes } = await imgData.data;
+
+  // Update images state
+  await setImages(memes)
+
+  // Update activeImage state
+  await setActiveImage(memes[0].url)
+}
 
 function App() {
   return (
