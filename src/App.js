@@ -88,6 +88,7 @@ function App() {
 
   return (
     <div className="App">
+    <header>Meme Generator</header>
       <Form
         textTop={textTop}
         textBottom={textBottom}

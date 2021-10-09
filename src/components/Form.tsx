@@ -41,12 +41,12 @@ const Form = (props: FormInterface) => {
             <div className="form-buttons">
                 { /* Button to load random image from API on click */ }
                 <button className="btn btn-primary" type="button" onClick={props.handleImageChange}>
-                    Change image
+                    <p className="btn-text">Randomize new image</p> 
                 </button>
 
                 { /* Load image */ }
                 <label className="btn btn-primary" htmlFor="fileInput">
-                    Load image 
+                    <p className="btn-text">Upload your own image</p> 
                     <input 
                         id="fileInput" 
                         name="fileInput" 
@@ -59,7 +59,7 @@ const Form = (props: FormInterface) => {
 
                 { /* Button to generate png of the meme on click */}
                 <button className="btn btn-primary" type="button" onClick={props.handleMemeGeneration}>
-                    Generate meme
+                <p className="btn-text">Generate meme</p> 
                 </button>
 
                 { /* Button to remove meme on click */}

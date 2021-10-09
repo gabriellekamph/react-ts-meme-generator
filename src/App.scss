@@ -1,6 +1,5 @@
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 16px;
 }
 
@@ -10,6 +9,7 @@ body {
 }
 
 /* Styles for App component */
+
 .App {
   text-align: center;
 }
@@ -22,21 +22,13 @@ header {
 }
 
 /* Styles for Content component */
+
 .content {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
   margin-top: 15px;
 }
 
@@ -44,8 +36,7 @@ img {
   max-width: 520px;
   height: auto;
   max-height: 500px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 h1, h2 {
@@ -70,6 +61,7 @@ h2 {
 }
 
 /* Styles for Form component */
+
 .form {
   margin: 0 auto;
   max-width: 380px;
@@ -77,13 +69,8 @@ h2 {
 
 .form-inputs,
 .form-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .form-inputs {
@@ -115,9 +102,7 @@ h2 {
 }
 
 .form-buttons {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .form-buttons .btn {
@@ -125,11 +110,11 @@ h2 {
   border: 0;
   cursor: pointer;
   color: #fff;
-  -webkit-transition: background .25s ease-in-out;
   transition: background .25s ease-in-out;
 }
 
 /* Styles for buttons */
+
 .btn-primary {
   background: #5e8f97;
 }
@@ -149,4 +134,8 @@ h2 {
 .btn-text {
   font-size: 13px;
 }
-/*# sourceMappingURL=App.css.map */
+
+
+
+
+
