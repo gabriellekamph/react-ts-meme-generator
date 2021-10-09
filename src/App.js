@@ -33,6 +33,23 @@ async function fetchImage() {
   await setActiveImage(memes[0].url)
 }
 
+// Function to handle text input elements 
+
+function handleInputChange(event) {
+  if (event.target.name === 'text-top') {
+    setTextTop(event.target.value)
+  } else {
+    setTextBottom(event.target.value)
+  }
+}
+
+// Function to choose random image from API fetch
+
+function handleImageChange() {
+  const image = images[Math.floor(Math.random() * images.length)]
+  setActiveImage(image.url)
+}
+
 function App() {
   return (
     <div className="App">
