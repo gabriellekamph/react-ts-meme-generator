@@ -1,6 +1,6 @@
 import './App.css';
-import * as React from 'react';
-import domtoimage from 'dom-to-image-more';
+import React, { useRef } from 'react';
+import domtoimage from 'dom-to-image';
 import Form from './components/Form';
 import Content from './components/Content';
 import Result from './components/Result';
@@ -9,8 +9,8 @@ function App() {
 
   // Creating refs
 
-  let contentContainerRef = React.useRef(null)
-  let resultContainerRef = React.useRef(null)
+  let contentContainerRef = useRef();
+  let resultContainerRef = useRef();
 
   // Creating hooks for useState
 
@@ -58,18 +58,45 @@ function App() {
     setActiveImage(window.URL.createObjectURL(event.target.files[0]))
   }
 
-  // Function to handle meme generation
+  // Function to close the modal when user clicks on <span> (x) ---- NOT WORKING YET -----
+
+  function closeModal(event) {
+    let modal = document.getElementById("myModal");
+    let span = document.getElementById("close");
+
+    if (event.target === span) {
+      modal.style.display = "none";
+      resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
+      setIsMemeGenerated(false);
+    }
+  } 
+
+  // Function to handle meme generation (also called save meme)
 
   function handleMemeGeneration() {
+
+    let modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    
+    // Close modal then user clicks anywhere outside of it
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
     if (resultContainerRef.current.childNodes.length > 0) {
       resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
     }
 
     domtoimage.toPng(contentContainerRef.current).then((dataUrl) => {
       const img = new Image()
-      img.src = dataUrl
-      resultContainerRef.current.appendChild(img)
-      setIsMemeGenerated(true)
+      img.src = dataUrl;
+      resultContainerRef.current.appendChild(img);
+      setIsMemeGenerated(true);
+    }).catch(function (error) {
+      console.error("Oops, something's wrong here!", error)
     })
   }
 
@@ -78,6 +105,9 @@ function App() {
   function handleMemeReset() {
     resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
     setIsMemeGenerated(false)
+    setTextTop('');
+    setTextBottom('');
+    fetchImage();
   }
 
   // Calling function to fetch image from API when app mounts
@@ -98,6 +128,7 @@ function App() {
         handleMemeGeneration={handleMemeGeneration}
         handleMemeReset={handleMemeReset}
         isMemeGenerated={isMemeGenerated}  
+        closeModal={closeModal}
       />
 
       <Content 
@@ -109,6 +140,7 @@ function App() {
 
       <Result 
         resultContainerRef={resultContainerRef}
+        closeModal={closeModal}
       />
     </div>
   );

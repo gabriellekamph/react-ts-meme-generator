@@ -16,6 +16,7 @@ interface FormInterface {
 // Form component 
 
 const Form = (props: FormInterface) => {
+    
     return (
         <div className="form">
             <div className="form-inputs">
@@ -40,13 +41,13 @@ const Form = (props: FormInterface) => {
 
             <div className="form-buttons">
                 { /* Button to load random image from API on click */ }
-                <button className="btn btn-primary" type="button" onClick={props.handleImageChange}>
+                <button id="randomize" className="btn btn-primary" type="button" onClick={props.handleImageChange}>
                     <p className="btn-text">Randomize new image</p> 
                 </button>
 
                 { /* Load image */ }
                 <label className="btn btn-primary" htmlFor="fileInput">
-                    <p className="btn-text">Upload your own image</p> 
+                    <p className="btn-text">Upload file</p> 
                     <input 
                         id="fileInput" 
                         name="fileInput" 
@@ -57,15 +58,18 @@ const Form = (props: FormInterface) => {
                     />                
                 </label>
 
-                { /* Button to generate png of the meme on click */}
-                <button className="btn btn-primary" type="button" onClick={props.handleMemeGeneration}>
+                { /* Button to generate png of the meme and open modal on click */}
+                <button className="btn btn-primary" id="myBtn" type="button" onClick={props.handleMemeGeneration}>
                 <p className="btn-text">Generate meme</p> 
                 </button>
 
                 { /* Button to remove meme on click */}
-                {props.isMemeGenerated && 
-                <button className="btn btn-danger" type="button" onClick={props.handleMemeReset}>
-                    Reset 
+                {props.isMemeGenerated && <button 
+                    className="btn btn-danger" 
+                    type="button" 
+                    onClick={props.handleMemeReset}
+                >
+                Reset 
                 </button>}
             </div>
         </div>

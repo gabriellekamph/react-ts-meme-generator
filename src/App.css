@@ -1,24 +1,81 @@
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
   margin: 0;
   font: 1rem sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 /* Styles for App component */
 .App {
   text-align: center;
+  width: 100vw;
 }
 
 header {
   font-size: 70px;
   margin-top: 30px;
+  padding: 20px;
   font-family: 'Concert One', cursive;
   text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    margin-top: 20px 40px;
+    text-align: left;
+  }
+  .App {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  header {
+    margin-bottom: 60px;
+  }
+  .form {
+    width: 450px;
+    height: 100%;
+    justify-self: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+  .form-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  header {
+    width: 100%;
+  }
+  #randomize {
+    width: 100%;
+  }
 }
 
 /* Styles for Content component */
@@ -38,6 +95,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 15px;
+  width: 60%;
 }
 
 img {
@@ -72,7 +130,7 @@ h2 {
 /* Styles for Form component */
 .form {
   margin: 0 auto;
-  max-width: 380px;
+  max-width: 450px;
 }
 
 .form-inputs,
@@ -87,14 +145,14 @@ h2 {
 }
 
 .form-inputs {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .form-inputs input,
 .form-buttons .btn {
-  border-radius: 15px;
+  border-radius: 8px;
   border: 1px solid;
-  padding: 5px;
+  padding: 2px;
   margin: 10px;
 }
 
@@ -106,12 +164,12 @@ h2 {
 }
 
 .form-inputs input:focus {
-  outline-color: #e94390;
+  outline-color: #000000;
 }
 
 .form-inputs input + input,
 .form-buttons .btn + .btn {
-  margin-left: 12px;
+  margin-left: 10px;
 }
 
 .form-buttons {
@@ -121,7 +179,7 @@ h2 {
 }
 
 .form-buttons .btn {
-  padding: 8px 12px;
+  padding: 1px 8px;
   border: 0;
   cursor: pointer;
   color: #fff;
@@ -131,11 +189,11 @@ h2 {
 
 /* Styles for buttons */
 .btn-primary {
-  background: #5e8f97;
+  background: #000000;
 }
 
 .btn-primary:hover {
-  background: #101418;
+  background: #24292e;
 }
 
 .btn-danger {
@@ -148,5 +206,46 @@ h2 {
 
 .btn-text {
   font-size: 13px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  width: 500px;
+}
+
+/* The close button in modal */
+#close {
+  color: #000000;
+  float: right;
+  font-size: 28px;
+}
+
+#close:hover,
+#close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */

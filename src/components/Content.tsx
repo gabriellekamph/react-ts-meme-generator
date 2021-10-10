@@ -4,7 +4,7 @@ import * as React from 'react';
 
 interface ContentInterface {
     activeImage: string;
-    contentContainerRef: React.RefObject<any>;
+    contentContainerRef: any;
     textBottom: string;
     textTop: string; 
 }
