@@ -67,7 +67,6 @@ function App() {
     if (event.target === span) {
       modal.style.display = "none";
       resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
-      setIsMemeGenerated(false);
     }
   } 
 
