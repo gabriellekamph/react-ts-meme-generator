@@ -29,7 +29,7 @@ function App() {
     const { memes } = await imgData.data;
 
     // Update images state
-    await setImages(memes[1])
+    await setImages(memes)
 
     // Update activeImage state
     await setActiveImage(memes[1].url)
