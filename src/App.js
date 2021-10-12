@@ -29,10 +29,10 @@ function App() {
     const { memes } = await imgData.data;
 
     // Update images state
-    await setImages(memes)
+    await setImages(memes[1])
 
     // Update activeImage state
-    await setActiveImage(memes[0].url)
+    await setActiveImage(memes[1].url)
   }
 
   // Function to handle text input elements 
